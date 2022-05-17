@@ -1,14 +1,14 @@
 /* eslint-disable no-use-before-define */
-import { Category } from "../../entities/Category";
+import { getRepository, Repository } from "typeorm";
+
 import {
   ICategoriesRepository,
   ICreateCategoryDTO,
-} from "../ICategoriesRepository";
+} from "@modules/cars/repositories/ICategoriesRepository";
 
-import { getRepository, Repository } from "typeorm"
+import { Category } from "../entities/Category";
 
 class CategoriesRepository implements ICategoriesRepository {
-  
   private repository: Repository<Category>;
 
   constructor() {
@@ -26,13 +26,13 @@ class CategoriesRepository implements ICategoriesRepository {
     const category = this.repository.create({
       description,
       name,
-    })
+    });
 
     await this.repository.save(category);
   }
 
   async list(): Promise<Category[]> {
-    const categories = await this.repository.find()
+    const categories = await this.repository.find();
     return categories;
   }
 

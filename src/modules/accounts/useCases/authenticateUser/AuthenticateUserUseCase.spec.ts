@@ -1,7 +1,7 @@
-import { AppError } from "@errors/AppError";
+import { ICreateUserDTO } from "@modules/accounts/dtos/ICreateUserDTO";
+import { UserRepositoryInMemory } from "@modules/accounts/repositories/in-memory/UserRepositoryInMemory";
+import { AppError } from "@shared/errors/AppError";
 
-import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
-import { UserRepositoryInMemory } from "../../repositories/in-memory/UserRepositoryInMemory";
 import { CreateUserUseCase } from "../createUser/CreateUserUserCase";
 import { AuthenticateUserUseCase } from "./AuthenticateUserUseCase";
 
@@ -31,7 +31,6 @@ describe("Authenticate User", () => {
       email: user.email,
       password: user.password,
     });
-    console.log(result);
 
     expect(result).toHaveProperty("token");
   });

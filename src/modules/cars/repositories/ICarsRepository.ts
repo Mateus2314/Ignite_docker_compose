@@ -12,6 +12,7 @@ interface ICarsRepository {
 
   // Is same a  create({ name, description, ...  }:
   create(data: ICreateCarDTO): Promise<Car>;
+  findById(id: string): Promise<Car>;
 }
 
 export { ICarsRepository, ICreateCarDTO };

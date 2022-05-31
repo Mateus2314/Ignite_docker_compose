@@ -1,35 +1,37 @@
 Arguments: 
-  /usr/bin/node /usr/bin/yarn add tsconfig-paths -D
+  /usr/bin/node /usr/bin/yarn add dayjs
 
 PATH: 
-  /home/mateus/.fastlane/bin:/home/mateus/anaconda3/bin:/home/mateus/anaconda3/condabin:/home/mateus/.zinit/polaris/bin:/home/mateus/.fastlane/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/mateus/Android/Sdk/emulator:/home/mateus/Android/Sdk/tools:/home/mateus/Android/Sdk/tools/bin:/home/mateus/Android/Sdk/platform-tools:/home/mateus/Documentos/android-studio/bin:/usr/local/bin:/home/mateus/Android/Sdk/emulator:/home/mateus/Android/Sdk/tools:/home/mateus/Android/Sdk/tools/bin:/home/mateus/Android/Sdk/platform-tools:/home/mateus/Documentos/android-studio/bin:/usr/local/bin
+  /home/mateus/anaconda3/bin:/home/mateus/anaconda3/condabin:/home/mateus/.zinit/polaris/bin:/home/mateus/.fastlane/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/mateus/Android/Sdk/emulator:/home/mateus/Android/Sdk/tools:/home/mateus/Android/Sdk/tools/bin:/home/mateus/Android/Sdk/platform-tools:/home/mateus/Documentos/android-studio/bin:/usr/local/bin
 
 Yarn version: 
   1.22.11
 
 Node version: 
-  14.19.2
+  14.19.3
 
 Platform: 
   linux x64
 
 Trace: 
-  Error: EACCES: permission denied, mkdir '/home/mateus/Documentos/projetos em typescript/Docker/Ignite_docker_compose/node_modules/eslint-import-resolver-typescript/node_modules/json5'
+  Error: EACCES: permission denied, unlink '/home/mateus/Documentos/projetos em typescript/Docker/Ignite_docker_compose/node_modules/.bin/acorn'
 
 npm manifest: 
   {
-    "name": "ApiTypescript",
+    "name": "rentx",
     "version": "1.0.0",
     "main": "index.js",
     "license": "MIT",
     "scripts": {
-      "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/server.ts",
-      "typeorm": "ts-node-dev ./node_modules/typeorm/cli",
-      "test": "jest"
+      "dev": "ts-node-dev -r tsconfig-paths/register --poll --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
+      "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli",
+      "test": "jest",
+      "seed:admin": "ts-node-dev src/shared/infra/typeorm/seed/admin.ts "
     },
     "dependencies": {
       "bcrypt": "^5.0.1",
       "csv-parse": "^5.0.4",
+      "dayjs": "^1.11.2",
       "express": "^4.17.3",
       "express-async-errors": "^3.1.1",
       "jsonwebtoken": "^8.5.1",
@@ -62,6 +64,7 @@ npm manifest:
       "prettier": "^2.6.2",
       "ts-jest": "^28.0.2",
       "ts-node-dev": "^1.1.8",
+      "tsconfig-paths": "^4.0.0",
       "typescript": "^4.6.3"
     }
   }
@@ -1583,6 +1586,11 @@ Lockfile:
     version "5.0.4"
     resolved "https://registry.yarnpkg.com/csv-parse/-/csv-parse-5.0.4.tgz#97e5e654413bcf95f2714ce09bcb2be6de0eb8e3"
     integrity sha512-5AIdl8l6n3iYQYxan5djB5eKDa+vBnhfWZtRpJTcrETWfVLYN0WSj3L9RwvgYt+psoO77juUr8TG8qpfGZifVQ==
+  
+  dayjs@^1.11.2:
+    version "1.11.2"
+    resolved "https://registry.yarnpkg.com/dayjs/-/dayjs-1.11.2.tgz#fa0f5223ef0d6724b3d8327134890cfe3d72fbe5"
+    integrity sha512-F4LXf1OeU9hrSYRPTTj/6FbO4HTjPKXvEIC1P2kcnFurViINCVk3ZV0xAS3XVx9MkMsXbbqlK6hjseaYbgKEHw==
   
   debug@2.6.9, debug@^2.6.9:
     version "2.6.9"
@@ -4402,6 +4410,15 @@ Lockfile:
     dependencies:
       "@types/json5" "^0.0.29"
       json5 "^1.0.1"
+      minimist "^1.2.6"
+      strip-bom "^3.0.0"
+  
+  tsconfig-paths@^4.0.0:
+    version "4.0.0"
+    resolved "https://registry.yarnpkg.com/tsconfig-paths/-/tsconfig-paths-4.0.0.tgz#1082f5d99fd127b72397eef4809e4dd06d229b64"
+    integrity sha512-SLBg2GBKlR6bVtMgJJlud/o3waplKtL7skmLkExomIiaAtLGtVsoXIqP3SYdjbcH9lq/KVv7pMZeCBpLYOit6Q==
+    dependencies:
+      json5 "^2.2.1"
       minimist "^1.2.6"
       strip-bom "^3.0.0"
   

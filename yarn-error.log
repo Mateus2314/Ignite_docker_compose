@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/bin/yarn add dayjs
+  /usr/bin/node /usr/bin/yarn add supertest @types/supertest -D
 
 PATH: 
   /home/mateus/anaconda3/bin:/home/mateus/anaconda3/condabin:/home/mateus/.zinit/polaris/bin:/home/mateus/.fastlane/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/mateus/Android/Sdk/emulator:/home/mateus/Android/Sdk/tools:/home/mateus/Android/Sdk/tools/bin:/home/mateus/Android/Sdk/platform-tools:/home/mateus/Documentos/android-studio/bin:/usr/local/bin
@@ -14,7 +14,7 @@ Platform:
   linux x64
 
 Trace: 
-  Error: EACCES: permission denied, unlink '/home/mateus/Documentos/projetos em typescript/Docker/Ignite_docker_compose/node_modules/.bin/acorn'
+  Error: EACCES: permission denied, unlink '/home/mateus/Documentos/projetos em typescript/Docker/Ignite_docker_compose/node_modules/.bin/browserslist'
 
 npm manifest: 
   {

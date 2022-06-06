@@ -1,5 +1,6 @@
 import { ICreateCarDTO } from "@modules/cars/dtos/ICreateCarDTO";
 import { Car } from "@modules/cars/infra/typeorm/entities/Car";
+import { AppError } from "@shared/errors/AppError";
 
 import { ICarsRepository } from "../ICarsRepository";
 
@@ -11,10 +12,10 @@ class CarsRepositoryInMemory implements ICarsRepository {
     return car;
   }
   findByName(name: string): Promise<Car> {
-    throw new Error("Method not implemented.");
+    throw new AppError("Method not implemented.");
   }
   list(): Promise<Car[]> {
-    throw new Error("Method not implemented.");
+    throw new AppError("Method not implemented.");
   }
 
   async create({

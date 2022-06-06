@@ -16,7 +16,7 @@ class DayjsDateProvider implements IDateProvider {
     return dayjs(date).utc().local().format();
   }
 
-  dateNow() {
+  dateNow(): Date {
     return dayjs().toDate();
   }
 }
